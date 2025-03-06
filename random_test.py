@@ -1,4 +1,4 @@
-from data_initializers.initialize import initialize
+from data_initializers.random_initializer import initialize
 from scheduler.scheduler import Scheduler
 
 # 🏗️ Initialize Scheduler
