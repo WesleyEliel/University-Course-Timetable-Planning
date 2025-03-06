@@ -187,13 +187,15 @@ class Scheduler:
         status = solver.Solve(self.model)
 
         if status in (cp_model.OPTIMAL, cp_model.FEASIBLE):
-            print(f"\nUne solution trouvé : ( {'Solution Optimale' if cp_model.OPTIMAL else 'Solution non optimale'} ) \n")
+            print(
+                f"\nUne solution trouvée : ( {'Solution Optimale' if cp_model.OPTIMAL else 'Solution non optimale'} ) \n")
             for topic in self.topics:
                 for room in self.rooms:
                     for professor in self.professors:
                         for timeslot in self.timeslots:
                             if solver.Value(self.X[topic.name, room.name, professor.name, timeslot.name]) == 1:
-                                day, start_hour, end_hour = timeslot.name.split('_')
+                                t_name_split = timeslot.name.split('_')
+                                day, start_hour, end_hour = t_name_split[0], t_name_split[-2], t_name_split[-1]
                                 print(
                                     f"{topic.name} planifié pour {professor.name} dans la salle {room.name} sur le créneaux {day} de {start_hour}h à {end_hour}h")
         else:
