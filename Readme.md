@@ -1,4 +1,6 @@
-# Système de Planification d'emploi du temps Universitaire avec Google OR-Tools
+# EN: [ Operation Research ] : University Scheduling System with Google OR-Tools
+# FR: [ Recherche Opérationnelle ] : Système de Planification d'emploi du temps Universitaire avec Google OR-Tools
+
 
 ## Description du Projet
 
