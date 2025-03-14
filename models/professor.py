@@ -10,6 +10,9 @@ class Professor:
         self.name = name
         self.availability = set()
 
+    def __str__(self):
+        return f"{self.name}"
+
     def add_availability(self, timeslot: TimeSlot):
         # Permet ajouter un créneau de disponibilité
         self.availability.add(timeslot)

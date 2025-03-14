@@ -65,8 +65,11 @@ def initialize(start_time: str = "13-01-2025", end_time: str = "19-01-2025", roo
     rooms = ["Salle_TDD", "En_ligne"]
 
     rooms_availability = {
-        "Salle_TDD": [],  # Salle TDD
-        "En_ligne": [],  # En ligne
+        # Disponible tous les jours sauf mardi soir
+        "Salle_TDD": ['Lundi_08_13', 'Lundi_14_18', 'Mardi_08_13', 'Mercredi_08_13', 'Mercredi_14_18',
+                      'Jeudi_08_13', 'Jeudi_16-01-2025_14_18', 'Vendredi_08_13',
+                      'Vendredi_17-01-2025_14_18', 'Samedi_8_14'],  # Salle TDD
+        "En_ligne": ['Mardi_14_18'],  # En ligne
     }
 
     ###################################################################################################################
@@ -81,21 +84,53 @@ def initialize(start_time: str = "13-01-2025", end_time: str = "19-01-2025", roo
     #      'Mercredi_15-01-2025_08_13', 'Mercredi_15-01-2025_14_18', 'Jeudi_16-01-2025_08_13', 'Jeudi_16-01-2025_14_18',
     #      'Vendredi_17-01-2025_08_13', 'Vendredi_17-01-2025_14_18', 'Samedi_18-01-2025_8_14']
 
+    # profs_availability = {
+    #     # Toute la journée du vendredi
+    #     "M_Ars_LAW": ['Vendredi_17-01-2025_08_13', 'Vendredi_17-01-2025_14_18'],
+    #
+    #     # Seulement Jeudi soir
+    #     "Prof_Eug_EZIN": ['Jeudi_16-01-2025_08_13'],
+    #
+    #     # Mardi matin, Jeudi soir et Vendredi soir
+    #     "Dr_Ra_HOUN": ['Mardi_14-01-2025_08_13', 'Jeudi_16-01-2025_14_18'],
+    #
+    #     # Mardi toute la journée et Mercredi matin
+    #     "Dr_Arn_AHOUAN": ['Mardi_14-01-2025_08_13', 'Mardi_14-01-2025_14_18', 'Mercredi_15-01-2025_08_13'],
+    #
+    #     # Lundi Matin et vendredi toute la journée
+    #     "M_Er_ADJE": ['Lundi_13-01-2025_08_13', 'Vendredi_17-01-2025_08_13', 'Vendredi_17-01-2025_14_18', ]
+    # }
+
     profs_availability = {
         # Toute la journée du vendredi
-        "M_Ars_LAW": ['Vendredi_17-01-2025_08_13', 'Vendredi_17-01-2025_14_18'],
+        "M_Ars_LAW": ['Lundi_13-01-2025_08_13', 'Lundi_13-01-2025_14_18', 'Mardi_14-01-2025_08_13',
+                      'Mardi_14-01-2025_14_18', 'Mercredi_15-01-2025_08_13', 'Mercredi_15-01-2025_14_18',
+                      'Jeudi_16-01-2025_08_13', 'Jeudi_16-01-2025_14_18', 'Vendredi_17-01-2025_08_13',
+                      'Vendredi_17-01-2025_14_18', 'Samedi_18-01-2025_8_14'],
 
         # Seulement Jeudi soir
-        "Prof_Eug_EZIN": ['Jeudi_16-01-2025_08_13'],
+        "Prof_Eug_EZIN": ['Lundi_13-01-2025_08_13', 'Lundi_13-01-2025_14_18', 'Mardi_14-01-2025_08_13',
+                          'Mardi_14-01-2025_14_18', 'Mercredi_15-01-2025_08_13', 'Mercredi_15-01-2025_14_18',
+                          'Jeudi_16-01-2025_08_13', 'Jeudi_16-01-2025_14_18', 'Vendredi_17-01-2025_08_13',
+                          'Vendredi_17-01-2025_14_18', 'Samedi_18-01-2025_8_14'],
 
         # Mardi matin, Jeudi soir et Vendredi soir
-        "Dr_Ra_HOUN": ['Mardi_14-01-2025_08_13', 'Jeudi_16-01-2025_14_18'],
+        "Dr_Ra_HOUN": ['Lundi_08_13', 'Lundi_14_18', 'Mardi_08_13',
+                       'Mardi_14_18', 'Mercredi_08_13', 'Mercredi_14_18',
+                       'Jeudi_08_13', 'Jeudi_14_18', 'Vendredi_08_13',
+                       'Vendredi_14_18', 'Samedi_8_14'],
 
         # Mardi toute la journée et Mercredi matin
-        "Dr_Arn_AHOUAN": ['Mardi_14-01-2025_08_13', 'Mardi_14-01-2025_14_18', 'Mercredi_15-01-2025_08_13'],
+        "Dr_Arn_AHOUAN": ['Lundi_08_13', 'Lundi_14_18', 'Mardi_08_13',
+                          'Mardi_14_18', 'Mercredi_08_13', 'Mercredi_14_18',
+                          'Jeudi_08_13', 'Jeudi_16-01-2025_14_18', 'Vendredi_08_13',
+                          'Vendredi_17-01-2025_14_18', 'Samedi_8_14'],
 
         # Lundi Matin et vendredi toute la journée
-        "M_Er_ADJE": ['Lundi_13-01-2025_08_13', 'Vendredi_17-01-2025_08_13', 'Vendredi_17-01-2025_14_18', ]
+        "M_Er_ADJE": ['Lundi_08_13', 'Lundi_14_18', 'Mardi_08_13',
+                      'Mardi_14_18', 'Mercredi_08_13', 'Mercredi_14_18',
+                      'Jeudi_08_13', 'Jeudi_14_18', 'Vendredi_08_13',
+                      'Vendredi_14_18', 'Samedi_8_14']
     }
 
     return {

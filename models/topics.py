@@ -11,3 +11,6 @@ class Topic:
         self.professor = professor
         self.min_hours = min_hours
         self.max_hours = max_hours
+
+    def __str__(self):
+        return f"{self.name}"

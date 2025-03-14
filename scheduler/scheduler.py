@@ -147,8 +147,8 @@ class Scheduler:
                             self.model.Add(self.X[topic.name, room.name, professor.name, timeslot.name] == 0)
 
         # Respect des disponibilités des salles
-        # Si une salle n' est pas disponible sur un crenaux, alors il ne sert a rien même de l' évaluer,
-        # aucun cours ne peut pas avoir lieu dans cette salle à ce crenaux Xm,s,s,t prends la valeur 0
+        # Si une salle n' est pas disponible sur un créneaux, alors il ne sert a rien même de l' évaluer,
+        # aucun cours ne peut pas avoir lieu dans cette salle à ce créneaux Xm,s,s,t prends la valeur 0
         for room in self.rooms:
             for timeslot in self.timeslots:
                 if timeslot not in room.availability:
@@ -157,8 +157,8 @@ class Scheduler:
                             self.model.Add(self.X[topic.name, room.name, professor.name, timeslot.name] == 0)
 
         # Respect des disponibilités des professeurs
-        # Si un prof n' est pas disponible sur un crenaux, alors il ne sert a rien même de l' évaluer,
-        # il ne peut pas faire un cours à ce crenaux Xm,s,s,t prends la valeur 0
+        # Si un prof n' est pas disponible sur un créneaux, alors il ne sert a rien même de l' évaluer,
+        # il ne peut pas faire un cours à ce créneaux Xm,s,s,t prends la valeur 0
         for professor in self.professors:
             for timeslot in self.timeslots:
                 if timeslot not in professor.availability:

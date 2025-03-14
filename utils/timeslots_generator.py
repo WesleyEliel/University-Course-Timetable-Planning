@@ -19,10 +19,10 @@ class TimeSlotGenerator:
             formatted_date = current_date.strftime("%d-%m-%Y")
 
             if day_name == "Samedi":
-                slots.append(f"{day_name}_{formatted_date}_8_14")
+                slots.append(f"{day_name}_8_14")
             elif day_name not in ["Dimanche"]:
-                slots.append(f"{day_name}_{formatted_date}_08_13")
-                slots.append(f"{day_name}_{formatted_date}_14_18")
+                slots.append(f"{day_name}_08_12")
+                slots.append(f"{day_name}_14_18")
 
             current_date += timedelta(days=1)
 
