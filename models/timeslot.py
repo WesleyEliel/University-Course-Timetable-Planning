@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Pour pouvoir matérialiser les crénaux horaires
 
 # Todo: Ajouter le typage

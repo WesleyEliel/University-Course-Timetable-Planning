@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class RoomGenerator:
     def __init__(self, quantity: int):
         self.rooms_quantity = quantity

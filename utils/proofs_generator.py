@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class ProfGenerator:
     def __init__(self, quantity: int):
         self.profs_quantity = quantity

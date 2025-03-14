@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Pour pouvoir matérialiser les salles
 
 from models.timeslot import TimeSlot

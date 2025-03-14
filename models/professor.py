@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
+
 # Pour pouvoir matérialiser les professeurs / enseignants
+
 from models.timeslot import TimeSlot
 
 

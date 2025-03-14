@@ -1,6 +1,7 @@
+# -*- coding: utf-8 -*-
+
 # Pour pouvoir matérialiser les matières
 
-# Ajouter le typage
 from models.professor import Professor
 
 

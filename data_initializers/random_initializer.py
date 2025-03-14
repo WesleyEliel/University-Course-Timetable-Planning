@@ -1,6 +1,4 @@
-########################################################################################################################
-
-# Créneaux
+# -*- coding: utf-8 -*-
 import random
 
 from utils.proofs_generator import ProfGenerator
@@ -132,38 +130,49 @@ available_topics = [
 ]
 
 
-def initialize():
-    timeslots = TimeSlotGenerator("27-01-2025", "09-03-2025").generate_slots()
+def initialize(start_time: str = "27-01-2025", end_time: str = "09-03-2025", room_quantity: int = 9,
+               proof_quantity: int = 6):
+    """
+    Permet d 'initialiser des données random sur une certaine période de temps
 
-    ########################################################################################################################
+    params:
+        start_time: str, Ex 27-01-2025
+        end_time: str, Ex 09-03-2025
+        room_quantity: int,
+        proof_quantity: int,
+
+    """
+    timeslots = TimeSlotGenerator(start_time, end_time).generate_slots()
+
+    ###################################################################################################################
 
     # Salles et leur disponibilités
 
     ## Ensemble des salles
-    rooms = RoomGenerator(9).generate_rooms()
+    rooms = RoomGenerator(room_quantity).generate_rooms()
 
     rooms_availability = {room: random_choices_from_list(timeslots, random.randint(len(rooms), len(timeslots))) for room
                           in
                           rooms}
 
-    ########################################################################################################################
+    ###################################################################################################################
 
     # Professeurs et leur disponibilités
 
     ## Ensemble des professeurs
-    profs = ProfGenerator(6).generate_profs()
+    profs = ProfGenerator(proof_quantity).generate_profs()
     profs_availability = {room: random_choices_from_list(timeslots, random.randint(len(profs), len(timeslots))) for room
                           in
                           rooms}
 
-    ########################################################################################################################
+    ###################################################################################################################
 
     # Matières
 
     topics = [{**item, "assigned_prof": random.choice(profs)} for item in
               random_choices_from_list(available_topics, random.randint(len(profs), len(available_topics)))]
 
-    ########################################################################################################################
+    ###################################################################################################################
     return {
         "timeslots": timeslots,
         "rooms": rooms,

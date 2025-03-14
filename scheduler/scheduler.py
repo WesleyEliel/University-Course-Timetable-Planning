@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from typing import List, Union
 
 from ortools.sat.python import cp_model

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from scheduler.scheduler import Scheduler
 
 # 🏗️ Initialize Scheduler

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import locale
 from datetime import datetime, timedelta
 
@@ -19,7 +21,7 @@ class TimeSlotGenerator:
             if day_name == "Samedi":
                 slots.append(f"{day_name}_{formatted_date}_8_14")
             elif day_name not in ["Dimanche"]:
-                slots.append(f"{day_name}_{formatted_date}_08_12")
+                slots.append(f"{day_name}_{formatted_date}_08_13")
                 slots.append(f"{day_name}_{formatted_date}_14_18")
 
             current_date += timedelta(days=1)
